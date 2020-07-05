@@ -5,6 +5,10 @@ const { firefox } = require("playwright-firefox")
 const app = express()
 const port = process.env.PORT || 3000;
 
+app.get("/", async(req,res) => {
+  res.json({"yo":"baby yo"});
+})
+
 app.get("/browser/:name", async (req, res) => {
   const browserName = req.params["name"] || "chromium"
   if (!["chromium", "firefox"].includes(browserName)) {
